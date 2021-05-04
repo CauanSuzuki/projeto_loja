@@ -1,15 +1,15 @@
 const express = require("express");
+const bodyParser = require("body-parser");
+require("dotenv").config();
+
+const routes = require("./src/routes");
 
 const app = express();
 
-// TODO: retorna um json ( { "mensagem": "ola munda", "parametro": "?"} )
-// TODO: definir um parametro em uma rota
-// TODO: mostrar esse parametro
+app.use(bodyParser.json());
 
-app.get("/home", function (req, res) {
-  return res.send("hello world");
-});
+app.use(routes);
 
 app.listen(3333, function () {
-  console.log("servidor iniciado");
+  console.log("rodando");
 });
